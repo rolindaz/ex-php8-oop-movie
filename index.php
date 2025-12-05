@@ -14,6 +14,7 @@ class Movie
     public $poster_url;
 
     // ogni film ha un genere
+    // Modificare la classe Movie in modo che accetti piú di un genere.
 
     public $genre = [];
 
@@ -33,17 +34,27 @@ class Movie
     {
         return $this->release_year <= 1980;
     }
+
+    public function getGenres()
+    {
+        $genre_names = [];
+        foreach ($this->genre as $genre) {
+            $genre_names[] = $genre->name;
+        };
+
+        return implode(", ", $genre_names);
+    }
 }
 
 // - vengono istanziati almeno due oggetti ‘Movie’ e stampati a schermo i valori delle relative proprietà
 
 $titanic = new Movie("Titanic", 1997, "James Cameron", [new Genre("Romantico", "Si concentra sulle storie d'amore, spaziando da commedie leggere a drammi intensi."), new Genre("Avventura", "Segue i protagonisti in un viaggio o in un'impresa avventurosa, spesso in luoghi esotici o pericolosi.")]);
+
 $ladri_di_biciclette = new Movie("Ladri di Biciclette", 1948, "Vittorio De Sica", [new Genre("Drammatico", "Esplora temi seri e profondi, concentrandosi sulle relazioni umane e sui conflitti emotivi."), new Genre("Thriller", "Si basa sul mistero, l'indagine e la suspense, spesso con elementi di suspense o polizieschi.")]);
 
 /* var_dump($titanic, $ladri_di_biciclette); */
 
 // - è definita una classe Genre
-
 class Genre
 {
     //   -> all'interno della classe sono dichiarate delle variabili d'istanza
@@ -88,7 +99,7 @@ class Genre
                             <?php echo $titanic->title ?>
                         </h4>
                     </div>
-                    <div class="card-bottom pt-3 d-flex justify-content-between">
+                    <div class="card-bottom py-3 d-flex justify-content-between">
                         <span>
                             <?php echo $titanic->release_year ?>
                         </span>
@@ -96,6 +107,9 @@ class Genre
                             <?php echo $titanic->director ?>
                         </span>
                     </div>
+                    <span>
+                        <?php echo $titanic->getGenres() ?>
+                    </span>
                 </div>
             </div>
             <div class="col">
@@ -105,7 +119,7 @@ class Genre
                             <?php echo $ladri_di_biciclette->title ?>
                         </h4>
                     </div>
-                    <div class="card-bottom pt-3 d-flex justify-content-between">
+                    <div class="card-bottom py-3 d-flex justify-content-between">
                         <span>
                             <?php echo $ladri_di_biciclette->release_year ?>
                         </span>
@@ -113,6 +127,9 @@ class Genre
                             <?php echo $ladri_di_biciclette->director ?>
                         </span>
                     </div>
+                    <span>
+                        <?php echo $ladri_di_biciclette->getGenres() ?>
+                    </span>
                 </div>
             </div>
         </div>
