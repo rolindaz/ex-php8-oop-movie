@@ -1,7 +1,7 @@
 <?php
 
-require_once("./Bonus_3/data/movies.php");
-require_once("./Bonus_3/data/genres.php");
+require_once("./data/genres.php");
+require_once("./data/movies.php");
 
 ?>
 
@@ -18,51 +18,33 @@ require_once("./Bonus_3/data/genres.php");
 </head>
 
 <body>
-    <div class="container">
+    <div class="container mb-5">
         <h1 class="text-center my-4">
             My Movies
         </h1>
-        <div class="row row-cols-2 mt-4">
-            <div class="col">
-                <div class="card p-2">
-                    <div class="card-top text-center text-uppercase">
-                        <h4>
-                            <?php echo $titanic->title ?>
-                        </h4>
-                    </div>
-                    <div class="card-bottom py-3 d-flex justify-content-between">
-                        <span>
-                            <?php echo $titanic->release_year ?>
+        <div class="row row-cols-2 mt-4 row-gap-3">
+            <?php foreach ($movies as $movie) { ?>
+                <div class="col">
+                    <div class="card py-2 px-4">
+                        <div class="card-top text-center text-uppercase">
+                            <h4>
+                                <?php echo $movie->title ?>
+                            </h4>
+                        </div>
+                        <div class="card-bottom py-3 d-flex justify-content-between">
+                            <span>
+                                <?php echo $movie->release_year ?>
+                            </span>
+                            <span>
+                                <?php echo $movie->director ?>
+                            </span>
+                        </div>
+                        <span class="text-center">
+                            <?php echo $movie->getGenres() ?>
                         </span>
-                        <span>
-                            <?php echo $titanic->director ?>
-                        </span>
                     </div>
-                    <span>
-                        <?php echo $titanic->getGenres() ?>
-                    </span>
                 </div>
-            </div>
-            <div class="col">
-                <div class="card p-2">
-                    <div class="card-top text-center text-uppercase">
-                        <h4>
-                            <?php echo $ladri_di_biciclette->title ?>
-                        </h4>
-                    </div>
-                    <div class="card-bottom py-3 d-flex justify-content-between">
-                        <span>
-                            <?php echo $ladri_di_biciclette->release_year ?>
-                        </span>
-                        <span>
-                            <?php echo $ladri_di_biciclette->director ?>
-                        </span>
-                    </div>
-                    <span>
-                        <?php echo $ladri_di_biciclette->getGenres() ?>
-                    </span>
-                </div>
-            </div>
+            <?php } ?>
         </div>
     </div>
 </body>

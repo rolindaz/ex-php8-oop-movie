@@ -1,6 +1,6 @@
 <?php
 
-require_once("./Bonus_3/Models/Genre.php");
+require_once("./Models/Genre.php");
 
 $genres = [
     $romantico = new Genre("Romantico", "Si concentra sulle storie d'amore, spaziando da commedie leggere a drammi intensi."),
