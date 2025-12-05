@@ -71,6 +71,17 @@ class Genre
     }
 }
 
+// Aggiungere un Trait alla classe Movie con almeno una proprietà e un metodo.
+
+trait Soundtrack
+{
+    public $composer;
+    public $available_on = [];
+    public function checkSpotifyAvailability()
+    {
+        return in_array("Spotify", $this->available_on);
+    }
+}
 
 ?>
 
