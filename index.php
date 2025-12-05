@@ -15,16 +15,16 @@ class Movie
 
     // ogni film ha un genere
 
-    public $genre;
+    public $genre = [];
 
     // all'interno della classe è definito un costruttore
 
-    function __construct($_title, $_release_year, $_director, Genre $_genre)
+    function __construct($_title, $_release_year, $_director, $_genres)
     {
         $this->title = $_title;
         $this->release_year = $_release_year;
         $this->director = $_director;
-        $this->genre = $_genre;
+        $this->genre = $_genres;
     }
 
     // all'interno della classe è definito almeno un metodo
@@ -37,8 +37,8 @@ class Movie
 
 // - vengono istanziati almeno due oggetti ‘Movie’ e stampati a schermo i valori delle relative proprietà
 
-$titanic = new Movie("Titanic", 1997, "James Cameron", new Genre("Romantico", "Si concentra sulle storie d'amore, spaziando da commedie leggere a drammi intensi."));
-$ladri_di_biciclette = new Movie("Ladri di Biciclette", 1948, "Vittorio De Sica", new Genre("Drammatico", "Esplora temi seri e profondi, concentrandosi sulle relazioni umane e sui conflitti emotivi."));
+$titanic = new Movie("Titanic", 1997, "James Cameron", [new Genre("Romantico", "Si concentra sulle storie d'amore, spaziando da commedie leggere a drammi intensi."), new Genre("Avventura", "Segue i protagonisti in un viaggio o in un'impresa avventurosa, spesso in luoghi esotici o pericolosi.")]);
+$ladri_di_biciclette = new Movie("Ladri di Biciclette", 1948, "Vittorio De Sica", [new Genre("Drammatico", "Esplora temi seri e profondi, concentrandosi sulle relazioni umane e sui conflitti emotivi."), new Genre("Thriller", "Si basa sul mistero, l'indagine e la suspense, spesso con elementi di suspense o polizieschi.")]);
 
 /* var_dump($titanic, $ladri_di_biciclette); */
 
