@@ -13,13 +13,18 @@ class Movie
     public $runtime;
     public $poster_url;
 
+    // ogni film ha un genere
+
+    public $genre;
+
     // all'interno della classe è definito un costruttore
 
-    function __construct($_title, $_release_year, $_director)
+    function __construct($_title, $_release_year, $_director, Genre $_genre)
     {
         $this->title = $_title;
         $this->release_year = $_release_year;
         $this->director = $_director;
+        $this->genre = $_genre;
     }
 
     // all'interno della classe è definito almeno un metodo
@@ -32,10 +37,28 @@ class Movie
 
 // - vengono istanziati almeno due oggetti ‘Movie’ e stampati a schermo i valori delle relative proprietà
 
-$titanic = new Movie("Titanic", 1997, "James Cameron");
-$ladri_di_biciclette = new Movie("Ladri di Biciclette", 1948, "Vittorio De Sica");
+$titanic = new Movie("Titanic", 1997, "James Cameron", new Genre("Romantico", "Si concentra sulle storie d'amore, spaziando da commedie leggere a drammi intensi."));
+$ladri_di_biciclette = new Movie("Ladri di Biciclette", 1948, "Vittorio De Sica", new Genre("Drammatico", "Esplora temi seri e profondi, concentrandosi sulle relazioni umane e sui conflitti emotivi."));
 
 /* var_dump($titanic, $ladri_di_biciclette); */
+
+// - è definita una classe Genre
+
+class Genre
+{
+    //   -> all'interno della classe sono dichiarate delle variabili d'istanza
+
+    public $name;
+    public $description;
+
+    // all'interno della classe è definito un costruttore
+
+    function __construct($_name, $_description)
+    {
+        $this->name = $_name;
+        $this->description = $_description;
+    }
+}
 
 
 ?>
