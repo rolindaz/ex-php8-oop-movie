@@ -1,8 +1,7 @@
 <?php
 
-require_once("./Bonus_3/Traits/Soundtrack.php");
-require_once("./Bonus_3/Models/Genre.php");
-require_once("./Bonus_3/Models/Movie.php");
+require_once("./Bonus_3/data/movies.php");
+require_once("./Bonus_3/data/genres.php");
 
 ?>
 
